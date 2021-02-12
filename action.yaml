@@ -10,14 +10,15 @@ inputs:
     required: true
   new-image-tag:
     description: New image tag
-    required: true
+    default: '${{github.sha}}'
+    required: false
   container-name:
     description: Name of the container that references the image to replace
     required: true
 outputs:
   old-image-tag:
     description: 'Previous image tag'
-    
+
 runs:
   using: 'node12'
   main: 'dist/index.js'

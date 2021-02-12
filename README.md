@@ -12,7 +12,8 @@ This action prints modifies a Kubernetes deployment file by updating a container
     # Path to the yaml manifest. Required.
     manifest-path: ''
 
-    # Value that will replace current image tag. Required
+    # Value that will replace current image tag.
+    # Defaults to ${{ github.sha }}
     new-image-tag: ''
 
     # Image name used to disambiguate specs. Required.
