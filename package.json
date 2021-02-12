@@ -12,15 +12,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Charlyzzz/update-k8s-manifest.git"
+    "url": "git+https://github.com/Charlyzzz/update-k8s-image.git"
   },
   "keywords": [],
   "author": "Erwin Debusschere <erwincdl@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Charlyzzz/update-k8s-manifest/issues"
+    "url": "https://github.com/Charlyzzz/update-k8s-image/issues"
   },
-  "homepage": "https://github.com/Charlyzzz/update-k8s-manifest#readme",
+  "homepage": "https://github.com/Charlyzzz/update-k8s-image#readme",
   "dependencies": {
     "@actions/core": "^1.2.6",
     "js-yaml": "^4.0.0"
