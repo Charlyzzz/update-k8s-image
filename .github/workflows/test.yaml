@@ -27,7 +27,7 @@ jobs:
         uses: Charlyzzz/update-k8s-image@v1.4
         with:
           manifest-path: deployment.yaml
-          container-name: my-backend
+          container-name: backend
 
       # Runs a set of commands using the runners shell
       - name: Cat new deployment
