@@ -1,0 +1,19 @@
+name: Update k8s manifest
+description: Updates a Kubernetes manifest with the provided value
+
+inputs:
+  manifest-path:
+    description: Location of the manifest that will be updated
+    required: true
+  new-image-tag:
+    description: New image tag
+    required: true
+  container-name:
+    description: Name of the container that references the image to replace
+    required: true
+outputs:
+  old-image-tag:
+    description: 'Previous image tag'
+runs:
+  using: 'node12'
+  main: 'index.js'

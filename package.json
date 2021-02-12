@@ -1,0 +1,41 @@
+{
+  "name": "update-k8s-image",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lib/main.js",
+  "scripts": {
+    "build": "rimraf dist && rimraf lib && tsc && ncc build",
+    "format": "prettier --write '**/*.ts'",
+    "format-check": "prettier --check '**/*.ts'",
+    "lint": "eslint src/**/*.ts",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Charlyzzz/update-k8s-manifest.git"
+  },
+  "keywords": [],
+  "author": "Erwin Debusschere <erwincdl@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Charlyzzz/update-k8s-manifest/issues"
+  },
+  "homepage": "https://github.com/Charlyzzz/update-k8s-manifest#readme",
+  "dependencies": {
+    "@actions/core": "^1.2.6",
+    "js-yaml": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^26.0.20",
+    "@types/js-yaml": "^4.0.0",
+    "@typescript-eslint/eslint-plugin": "^4.15.0",
+    "@typescript-eslint/parser": "^4.15.0",
+    "@vercel/ncc": "^0.27.0",
+    "eslint": "^7.19.0",
+    "jest": "^26.6.3",
+    "prettier": "^2.2.1",
+    "rimraf": "^3.0.2",
+    "ts-jest": "^26.5.1",
+    "typescript": "^4.1.5"
+  }
+}
