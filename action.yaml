@@ -1,5 +1,5 @@
-name: Update k8s manifest
-description: Updates a Kubernetes manifest with the provided value
+name: Update k8s image
+description: Updates a container tag inside a Kubernetes manifest
 
 inputs:
   manifest-path:
