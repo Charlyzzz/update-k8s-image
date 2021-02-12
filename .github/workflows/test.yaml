@@ -25,21 +25,15 @@ jobs:
 
       - name: Update k8s image
         id: update-image
-        uses: Charlyzzz/update-k8s-image@v1.4
+        uses: Charlyzzz/update-k8s-image@v1.5
         with:
           manifest-path: deployment.yaml
           container-name: backend
-          new-image-name: 'asd'
+          new-image-tag: 'asd'
 
       # Runs a set of commands using the runners shell
       - name: Cat new deployment
-        run: |
-          cat deployment.yaml
-          echo ${{steps.run_tests.outputs.*}}
-          echo ${{steps.run_tests.outputs.old-image-tag}}
+        run: cat deployment.yaml
 
-      - name: Echo steps
-        run: echo ${{join(steps.update-image.outputs.*, '\n')}}
-
-      - name: Echo old image
-        run: echo ${{steps.update-image.outputs.old-image-tag}}
+      - name: Display old image
+        run: echo Old tag was ${{steps.update-image.outputs.old-image-tag}}
