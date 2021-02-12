@@ -1,5 +1,8 @@
 name: Update k8s image
 description: Updates a container tag inside a Kubernetes manifest
+branding:
+  color: blue
+  icon: anchor
 
 inputs:
   manifest-path:
@@ -14,6 +17,7 @@ inputs:
 outputs:
   old-image-tag:
     description: 'Previous image tag'
+    
 runs:
   using: 'node12'
-  main: 'index.js'
+  main: 'dist/index.js'
