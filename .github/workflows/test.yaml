@@ -24,7 +24,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Update k8s image
-        uses: Charlyzzz/update-k8s-image@v1.3
+        uses: Charlyzzz/update-k8s-image@v1.4
         with:
           manifest-path: deployment.yaml
           container-name: my-backend
