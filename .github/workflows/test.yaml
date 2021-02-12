@@ -25,7 +25,7 @@ jobs:
 
       - name: Update k8s image
         id: update-image
-        uses: Charlyzzz/update-k8s-image@v1.5
+        uses: Charlyzzz/update-k8s-image@v1.6
         with:
           manifest-path: deployment.yaml
           container-name: backend
