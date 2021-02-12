@@ -1,5 +1,5 @@
 import { updateImage } from "./update-image";
-import core from "@actions/core";
+import * as core from "@actions/core";
 import * as fs from "fs";
 
 function inputs(): string[] {

@@ -26,24 +26,21 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const update_image_1 = __nccwpck_require__(891);
-const core_1 = __importDefault(__nccwpck_require__(186));
+const core = __importStar(__nccwpck_require__(186));
 const fs = __importStar(__nccwpck_require__(747));
 function inputs() {
-    return ["manifest-path", "new-image-tag", "container-name"].map((inputName) => core_1.default.getInput(inputName, { required: true }));
+    return ["manifest-path", "new-image-tag", "container-name"].map((inputName) => core.getInput(inputName, { required: true }));
 }
 try {
     const [manifestPath, newTag, containerName] = inputs();
     const { manifest, oldTag } = update_image_1.updateImage(fs.readFileSync(manifestPath, "utf-8"), containerName, newTag);
     fs.writeFileSync(manifestPath, manifest);
-    core_1.default.setOutput("old-image-tag", oldTag);
+    core.setOutput("old-image-tag", oldTag);
 }
 catch (error) {
-    core_1.default.setFailed(error.message);
+    core.setFailed(error.message);
 }
 
 
