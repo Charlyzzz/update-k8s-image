@@ -26,6 +26,7 @@ This action prints modifies a Kubernetes deployment file by updating a container
 # Scenarios
 
 - [Set backend version to latest](#Set-backend-version-to-latest)
+- [Reference old image tag](#Reference-old-image-tag)
 
 ## Set backend version to latest
 
@@ -53,11 +54,27 @@ This action prints modifies a Kubernetes deployment file by updating a container
 #              image: sidecar:2.0
 #              ports:
 #                - containerPort: 9999
-- uses: Charlyzzz/update-k8s-image
-  with:
-    manifest-path: 'path/to/my/deployment'
-    new-image-tag: 'latest'
-    name: 'backend'
+steps:
+  - uses: Charlyzzz/update-k8s-image
+    with:
+      manifest-path: path/to/my/deployment
+      new-image-tag: latest
+      name: backend
+```
+
+## Reference old image tag
+
+```yaml
+steps:
+  - uses: Charlyzzz/update-k8s-image
+    id: update-image
+    with:
+      manifest-path: path/to/my/deployment
+      new-image-tag: a4b357341c63669c26a324741c26d19c527ab9b7
+      name: backend
+
+  - name: Display old version
+    run: echo Old version was ${{steps.update-image.outputs.old-image-tag}}
 ```
 
 # License
