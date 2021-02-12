@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: my-app
+  template:
+    metadata:
+      labels:
+        app: my-app
+    spec:
+      containers:
+        - name: backend
+          image: my-registry/backend:1.0
+          ports:
+            - containerPort: 80
+        - name: sidecar
+          image: sidecar:2.0
+          ports:
+            - containerPort: 9999
