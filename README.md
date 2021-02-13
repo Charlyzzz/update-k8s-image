@@ -1,38 +1,50 @@
 # update-k8s-image action
 
-This action prints modifies a Kubernetes deployment file by updating a container image version.
+This action updates a container image tag in a Kubernetes deployment file.
 
 # Usage
 
 <!-- start usage -->
 
 ```yaml
-- uses: Charlyzzz/update-k8s-image
+- id: update-image
+  uses: Charlyzzz/update-k8s-image
   with:
-    # Path to the yaml manifest. Required.
-    manifest-path: ''
+    manifest-path: path/to/deployment.yaml
+    new-image-tag: latest
+    name: my-backend
 
-    # Value that will replace current image tag.
-    # Defaults to ${{ github.sha }}
-    new-image-tag: ''
-
-    # Image name used to disambiguate specs. Required.
-    name: ''
-
+# Example of using the output
+- id: test
+  run: curl ${{ steps.update-image.outputs.old-image-tag }}
 ```
 
 <!-- end usage -->
 
+# Inputs
+
+## Inputs
+
+- `manifest-path`: (Required) Deployment file's path.
+
+- `new-image-tag`: (Optional) Runtime to use for the function. Defaults to `${{ github.sha }}`.
+
+- `container-name`: (Required) Name of the container that uses the image. This parameter is used to target only one container.
+
+
+## Outputs
+
+- `old-image-tag`: Image tag before replacement.
+
 # Scenarios
 
 - [Set backend version to latest](#Set-backend-version-to-latest)
-- [Reference old image tag](#Reference-old-image-tag)
 
 ## Set backend version to latest
 
 ```yaml
-# Sample deployment file
-###
+### path/to/my/deployment.yaml ###
+#
 #    apiVersion: apps/v1
 #    kind: Deployment
 #    spec:
@@ -57,25 +69,11 @@ This action prints modifies a Kubernetes deployment file by updating a container
 steps:
   - uses: Charlyzzz/update-k8s-image
     with:
-      manifest-path: path/to/my/deployment
+      manifest-path: path/to/my/deployment.yaml
       new-image-tag: latest
       name: backend
 ```
 
-## Reference old image tag
-
-```yaml
-steps:
-  - uses: Charlyzzz/update-k8s-image
-    id: update-image
-    with:
-      manifest-path: path/to/my/deployment
-      new-image-tag: a4b357341c63669c26a324741c26d19c527ab9b7
-      name: backend
-
-  - name: Display old version
-    run: echo Old version was ${{steps.update-image.outputs.old-image-tag}}
-```
 
 # License
 
