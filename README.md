@@ -27,7 +27,7 @@ This action updates a container image tag in a Kubernetes deployment file.
 
 - `manifest-path`: (Required) Deployment file's path.
 
-- `new-image-tag`: (Optional) Runtime to use for the function. Defaults to `${{ github.sha }}`.
+- `new-image-tag`: (Optional) Value to use as new tag. Defaults to `${{ github.sha }}`.
 
 - `container-name`: (Required) Name of the container that uses the image. This parameter is used to target only one container.
 
