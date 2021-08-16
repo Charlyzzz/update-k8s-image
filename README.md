@@ -12,7 +12,7 @@ This action updates a container image tag in a Kubernetes deployment file.
   with:
     manifest-path: path/to/deployment.yaml
     new-image-tag: latest
-    name: my-backend
+    container-name: my-backend
 
 # Example of using the output
 - id: test
@@ -71,7 +71,7 @@ steps:
     with:
       manifest-path: path/to/my/deployment.yaml
       new-image-tag: latest
-      name: backend
+      container-name: backend
 ```
 
 
